@@ -7,6 +7,7 @@
   <title>GMRS Repeaters - WNC RADIO PROJECT</title>
 </head>
 <body>
+<main>
 <h1>GMRS Repeaters</h1>
 <h2>Managed by the WNC Radio Project</h2>
 <div class="rpt-info">
@@ -116,8 +117,14 @@
   <br/>
   CTCSS 136.5hz
 </div>
-<a class="btn" href="index.html">Back to Home</a>
+</main>
+<footer>
+  <a class="btn" href="index.html">Back to Home</a>
+</footer>
 <style>
+body{display:flex;flex-direction:column;height:100vh;margin:0}
+main{flex:1;overflow-y:auto}
+footer{padding:1rem 0 0}
 .rpt-info{margin:1.5rem 0}
 .rpt-info h3{margin:0 0 .5rem}
 hr {margin:1.5rem 0; border:none; border-top:1px solid #ccc;}
