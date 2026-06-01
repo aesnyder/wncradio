@@ -5,16 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="GMRS Repeater frequencies for Western North Carolina emergency communication">
   <title>GMRS Repeaters - WNC RADIO PROJECT</title>
-  <style>body{font-family:sans-serif;text-align:center;margin:0;padding:0 1rem;display:flex;flex-direction:column;height:100dvh}h2{font-size:1.2rem;font-weight:normal;color:#444}a.btn,a.btn:visited{display:block;margin:0 auto 1rem;padding:.75rem 1rem;max-width:300px;background:#1d3e59;color:#fff;text-decoration:none;border-radius:4px}a.btn:hover{background:#2a5a7e}a.btn:active{background:#152d42}a,a:visited{color:blue}main{flex:1;overflow-y:auto}footer{padding:1rem 0 0;border-top:1px solid #ccc}.rpt-info{margin:1.5rem 0}.rpt-info h3{margin:0 0 .5rem}hr{margin:1.5rem 0;border:none;border-top:1px solid #ccc}</style>
+  <style>
+    :root {
+      --primary: #1d3e59;
+      --primary-hover: #2a5a7e;
+      --primary-active: #152d42;
+      --text: #333;
+      --muted: #666;
+      --border: #ccc;
+      --font-main: sans-serif;
+    }
+    body {
+      font-family: var(--font-main);
+      text-align: center;
+      margin: 0;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      color: var(--text);
+    }
+    header {
+      padding-top: 1rem;
+    }
+    header a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto;
+    }
+    .site-name {
+      font-size: .9rem;
+      font-weight: bold;
+    }
+    h1 {
+      margin: 0.5rem 0 0;
+      color: var(--primary);
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 2rem;
+    }
+    .rpt-info {
+      margin: 1.5rem 0;
+    }
+    .rpt-info h3 {
+      margin: 0 0 .5rem;
+      color: var(--primary);
+    }
+    .rpt-net {
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+    hr {
+      margin: 1.5rem 0;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+    a.btn, a.btn:visited {
+      display: block;
+      margin: 0 auto 1rem;
+      padding: .75rem 1rem;
+      max-width: 300px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    a.btn:hover {
+      background: var(--primary-hover);
+    }
+    a.btn:active {
+      background: var(--primary-active);
+    }
+    footer {
+      padding: 1rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .disclaimer {
+      margin: 2rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 <main>
-<a href="index.html" style="display:block;text-decoration:none;color:#1d3e59;padding-top:1rem">
-  <img src="logo_g.webp" alt="" width="100" height="66.5" style="display:block;margin:0 auto">
-  <div style="font-size:.9rem;font-weight:bold">WNC RADIO PROJECT</div>
-</a>
-<h1>GMRS REPEATERS</h1>
-<h2>Managed by the WNC Radio Project</h2>
+<header>
+  <a href="index.html">
+    <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+    <div class="site-name">WNC RADIO PROJECT</div>
+  </a>
+  <h1>GMRS REPEATERS</h1>
+  <h2>Managed by the WNC Radio Project</h2>
+</header>
 <div class="rpt-info">
   <h3>Echo Mountain</h3>
   462.575MHz
@@ -25,7 +118,7 @@
 </div>
 <div id="flat-top-mountain" class="rpt-info">
   <h3>Flat Top Mountain</h3>
-  <div style="margin-bottom: 0.25rem">Weekly Net: Every Sunday at 7PM</div>
+  <div class="rpt-net">Weekly Net: Every Sunday at 7PM</div>
   462.600MHz
   <br/>
   +5MHz offset
@@ -76,7 +169,7 @@
 </div>
 <div class="rpt-info">
   <h3>Fletcher 700</h3>
-  <div style="margin-bottom: 0.25rem">Weekly Net: Every Saturday at 8PM</div>
+  <div class="rpt-net">Weekly Net: Every Saturday at 8PM</div>
   462.700MHz
   <br/>
   +5MHz offset
@@ -131,7 +224,7 @@
   <br/>
   CTCSS 88.5Hz
 </div>
-<p style="margin: 2rem 0; color: #666; font-size: 0.9rem">
+<p class="disclaimer">
   WNC Radio Project Inc 501(c)(3) since 2026
 </p>
 </main>

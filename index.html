@@ -5,23 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Emergency Communication in Western North Carolina via GMRS Radio">
   <title>WNC RADIO PROJECT</title>
-  <style>body{font-family:sans-serif;text-align:center;margin:0;padding:0 1rem}h2{font-size:1.2rem;font-weight:normal;color:#444}a.btn,a.btn:visited{display:block;margin:0 auto 1rem;padding:.75rem 1rem;max-width:300px;background:#1d3e59;color:#fff;text-decoration:none;border-radius:4px}a.btn:hover{background:#2a5a7e}a.btn:active{background:#152d42}a,a:visited{color:blue}</style>
+  <style>
+    :root {
+      --primary: #1d3e59;
+      --primary-hover: #2a5a7e;
+      --primary-active: #152d42;
+      --text: #333;
+      --muted: #666;
+      --font-main: sans-serif;
+    }
+    body {
+      font-family: var(--font-main);
+      text-align: center;
+      margin: 0;
+      padding: 0 1rem;
+      color: var(--text);
+    }
+    header {
+      padding-top: 1rem;
+    }
+    h1 {
+      margin: 0;
+      color: var(--primary);
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: var(--muted);
+    }
+    .hero-text {
+      margin-bottom: 2rem;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: blue;
+    }
+    a.btn, a.btn:visited {
+      display: block;
+      margin: 0 auto 1rem;
+      padding: 0.75rem 1rem;
+      max-width: 300px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    a.btn:hover {
+      background: var(--primary-hover);
+    }
+    a.btn:active {
+      background: var(--primary-active);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto;
+    }
+    footer {
+      margin: 2rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-<img src="logo_g.webp" alt="" width="100" height="66.5" style="display:block;margin:0 auto;padding-top:1rem">
-<h1 style="margin:0; color:#1d3e59">WNC RADIO PROJECT</h1>
-<h2>Community and Emergency Communication in Western&nbsp;North&nbsp;Carolina</h2>
-<p style="margin-bottom: 2rem">Weekly net on <a href="repeaters.html#flat-top-mountain">Flat Top Mountain Repeater</a> every&nbsp;Sunday&nbsp;at&nbsp;7PM</p>
-<a class="btn" href="https://www.gofundme.com/f/boost-fairviews-emergency-comms-donate-for-gmrs-repeater">Donate</a>
-<a class="btn" href="repeaters.html">GMRS Repeaters</a>
-<a class="btn" href="gmrs_quick_reference.html">FRS/GMRS Quick Reference</a>
-<a class="btn" href="https://forms.gle/QuDrYDJfYUTTQULs5">Free Class Sign Up: Introduction&nbsp;and&nbsp;Licensing</a>
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfROIrGxsJoTzmSHj6VigazGvR42u0paSbONg0_5SZRQdDSTw/viewform">Free Class Sign Up: How&nbsp;to&nbsp;Operate&nbsp;your&nbsp;Baofeng&nbsp;Radio</a>
-<a class="btn" href="https://www.youtube.com/watch?v=xOuOIB1KCQ4">How to Get Licensed</a>
-<a class="btn" href="https://www.facebook.com/groups/flattop600">Facebook Group</a>
-<a class="btn" href="https://padlet.com/wncradioproject/flat_top_600">Flat Top Coverage Map</a>
-<a class="btn" href="https://drive.google.com/drive/u/0/folders/1bVbPbY1gWWhl0gpax6Cs0VKWIbCt6v8k">Radio Images</a>
-<footer style="margin: 2rem 0; color: #666; font-size: 0.9rem">
+<header>
+  <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+  <h1>WNC RADIO PROJECT</h1>
+  <h2>Community and Emergency Communication in Western&nbsp;North&nbsp;Carolina</h2>
+</header>
+<main>
+  <p class="hero-text">Weekly net on <a href="repeaters.html#flat-top-mountain">Flat Top Mountain Repeater</a> every&nbsp;Sunday&nbsp;at&nbsp;7PM</p>
+  <nav>
+    <a class="btn" href="https://www.gofundme.com/f/boost-fairviews-emergency-comms-donate-for-gmrs-repeater">Donate</a>
+    <a class="btn" href="repeaters.html">GMRS Repeaters</a>
+    <a class="btn" href="gmrs_quick_reference.html">FRS/GMRS Quick Reference</a>
+    <a class="btn" href="https://forms.gle/QuDrYDJfYUTTQULs5">Free Class Sign Up: Introduction&nbsp;and&nbsp;Licensing</a>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfROIrGxsJoTzmSHj6VigazGvR42u0paSbONg0_5SZRQdDSTw/viewform">Free Class Sign Up: How&nbsp;to&nbsp;Operate&nbsp;your&nbsp;Baofeng&nbsp;Radio</a>
+    <a class="btn" href="https://www.youtube.com/watch?v=xOuOIB1KCQ4">How to Get Licensed</a>
+    <a class="btn" href="https://www.facebook.com/groups/flattop600">Facebook Group</a>
+    <a class="btn" href="https://padlet.com/wncradioproject/flat_top_600">Flat Top Coverage Map</a>
+    <a class="btn" href="https://drive.google.com/drive/u/0/folders/1bVbPbY1gWWhl0gpax6Cs0VKWIbCt6v8k">Radio Images</a>
+  </nav>
+</main>
+<footer>
   WNC Radio Project Inc 501(c)(3) since 2026
 </footer>
 </body>
