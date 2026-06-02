@@ -62,6 +62,9 @@
     a.btn:active {
       background: var(--primary-active);
     }
+    .offline-hidden {
+      display: none !important;
+    }
     .logo {
       display: block;
       margin: 0 auto;
@@ -100,6 +103,24 @@
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
+
+  function updateOfflineStatus() {
+    const isOffline = !navigator.onLine;
+    document.querySelectorAll('a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && (href.startsWith('http') || href.endsWith('.pdf'))) {
+        if (isOffline) {
+          link.classList.add('offline-hidden');
+        } else {
+          link.classList.remove('offline-hidden');
+        }
+      }
+    });
+  }
+
+  window.addEventListener('online', updateOfflineStatus);
+  window.addEventListener('offline', updateOfflineStatus);
+  updateOfflineStatus();
 </script>
 </body>
 </html>
