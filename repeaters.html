@@ -106,6 +106,7 @@
   </style>
 </head>
 <body>
+<div id="offline-indicator">Offline Mode: Some features hidden</div>
 <main>
 <header>
   <a href="index.html">
@@ -258,6 +259,16 @@
           link.classList.remove('offline-hidden');
         }
       }
+    });
+  }
+
+  window.addEventListener('online', updateOfflineStatus);
+  window.addEventListener('offline', updateOfflineStatus);
+  updateOfflineStatus();
+</script>
+</body>
+</html>
+  }
     });
   }
 
