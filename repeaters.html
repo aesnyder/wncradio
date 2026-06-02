@@ -94,6 +94,18 @@
     .offline-hidden {
       display: none !important;
     }
+    #offline-indicator {
+      display: none;
+      background: #8b0000;
+      color: white;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin: 0 -1rem;
+    }
     footer {
       padding: 1rem 0;
       border-top: 1px solid var(--border);
@@ -259,16 +271,6 @@
           link.classList.remove('offline-hidden');
         }
       }
-    });
-  }
-
-  window.addEventListener('online', updateOfflineStatus);
-  window.addEventListener('offline', updateOfflineStatus);
-  updateOfflineStatus();
-</script>
-</body>
-</html>
-  }
     });
   }
 

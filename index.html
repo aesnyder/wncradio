@@ -119,6 +119,10 @@
 
   function updateOfflineStatus() {
     const isOffline = !navigator.onLine;
+    const indicator = document.getElementById('offline-indicator');
+    if (indicator) {
+      indicator.style.display = isOffline ? 'block' : 'none';
+    }
     document.querySelectorAll('a').forEach(link => {
       const href = link.getAttribute('href');
       if (href && (href.startsWith('http') || href.endsWith('.pdf'))) {
