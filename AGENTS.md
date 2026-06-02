@@ -26,6 +26,6 @@ This document outlines the foundational technical mandates for the WNC Radio Pro
     *   Explicitly handle missing cache entries by throwing an Error rather than returning `undefined` to prevent browser `TypeError` bugs.
 
 ## 4. Maintenance Workflows
-*   **Cache Invalidation:** When making significant data updates, increment the `CACHE_NAME` version in `sw.js` (e.g., `v1.3` -> `v1.4`) to force a clean update for all users.
+*   **Cache Invalidation:** Always bump the `CACHE_NAME` version in `sw.js` (e.g., `v1.3` -> `v1.4`) whenever making changes to HTML, CSS, or assets that need to be reflected immediately for users. This forces a background update and ensures the offline experience remains current.
 *   **Branding:** Every HTML page must include links for `manifest.json`, `apple-touch-icon`, and a standard `favicon` using the `logo_g.webp` asset.
 *   **PWA Persistence:** When updating HTML files, ensure the PWA registration script remains intact at the bottom of the `<body>`.
