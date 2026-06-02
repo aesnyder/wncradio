@@ -1,0 +1,17 @@
+{
+  "name": "WNC Radio Project",
+  "short_name": "WNC Radio",
+  "description": "Emergency Communication in Western North Carolina via GMRS Radio",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d3e59",
+  "icons": [
+    {
+      "src": "/logo_g.webp",
+      "sizes": "200x133",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
