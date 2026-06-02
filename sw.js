@@ -1,10 +1,11 @@
-const CACHE_NAME = 'wnc-radio-v1.15';
+const CACHE_NAME = 'wnc-radio-v1.21';
 const ASSETS = [
   '/',
   '/index.html',
   '/repeaters.html',
   '/gmrs_quick_reference.html',
   '/logo_g.webp',
+  '/logo_w.webp',
   '/manifest.json'
 ];
 
