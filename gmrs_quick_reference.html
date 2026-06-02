@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="FRS/GMRS Radio Quick Reference Card - Channel frequencies, CTCSS codes, phonetic alphabet">
 <title>FRS/GMRS Quick Reference - WNC Radio Project</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/logo_g.webp">
+<meta name="theme-color" content="#1d3e59">
 <style>
     :root {
       --primary: #1d3e59;
@@ -513,5 +516,10 @@
 <footer>
   <a class="btn" href="index.html">Back to Home</a>
 </footer>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
 </body>
 </html>
