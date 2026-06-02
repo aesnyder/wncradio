@@ -59,7 +59,7 @@
 
     /* FOOTER */
     footer {
-        padding: 1rem 0;
+        padding: 1rem;
         border-top: 1px solid var(--border);
         text-align: center;
     }
@@ -93,10 +93,14 @@
 
     /* MAIN CONTENT */
     main {
-        padding: 1rem;
+        padding: 0;
         overflow-x: hidden;
         overflow-y: auto;
         flex: 1;
+    }
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     /* LAYOUT GRID */
@@ -245,6 +249,7 @@
 <body>
 <main>
 <div id="offline-indicator">Offline Mode: Some features hidden</div>
+<div class="px-4">
 
 <header>
     <a href="index.html">
@@ -528,7 +533,7 @@
 <p class="disclaimer">
   WNC Radio Project Inc 501(c)(3) since 2026
 </p>
-
+</div>
 </main>
 <footer>
   <a class="btn" href="index.html">Back to Home</a>

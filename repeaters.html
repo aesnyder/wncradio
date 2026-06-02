@@ -23,11 +23,15 @@
       font-family: var(--font-main);
       text-align: center;
       margin: 0;
-      padding: 0 1rem;
+      padding: 0;
       display: flex;
       flex-direction: column;
       height: 100dvh;
       color: var(--text);
+    }
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
     header {
       padding-top: 1rem;
@@ -105,7 +109,7 @@
       margin-bottom: 1rem;
     }
     footer {
-      padding: 1rem 0;
+      padding: 1rem;
       border-top: 1px solid var(--border);
     }
     .disclaimer {
@@ -118,6 +122,7 @@
 <body>
 <main>
 <div id="offline-indicator">Offline Mode: Some features hidden</div>
+<div class="px-4">
 <header>
   <a href="index.html">
     <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
@@ -245,6 +250,7 @@
 <p class="disclaimer">
   WNC Radio Project Inc 501(c)(3) since 2026
 </p>
+</div>
 </main>
 <footer>
 <a class="btn" href="index.html">Back to Home</a>
