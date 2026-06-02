@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wnc-radio-v1.8';
+const CACHE_NAME = 'wnc-radio-v1.9';
 const ASSETS = [
   '/',
   '/index.html',
@@ -50,9 +50,13 @@ self.addEventListener('fetch', (event) => {
         // If offline, try the cache
         return caches.match(event.request).then((cachedResponse) => {
           if (cachedResponse) return cachedResponse;
-          // If NOT in cache, we throw a real error so the browser 
-          // can handle the failure without a Service Worker TypeError.
-          throw new Error('Offline and not in cache');
+          
+          // Return a 404 response instead of throwing to avoid console errors
+          return new Response('Offline and not in cache', {
+            status: 404,
+            statusText: 'Not Found',
+            headers: new Headers({ 'Content-Type': 'text/plain' })
+          });
         });
       })
   );
