@@ -8,16 +8,40 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/webp" href="/logo_g.webp">
   <link rel="apple-touch-icon" href="/logo_g.webp">
-  <meta name="theme-color" content="#1d3e59">
+  <meta name="theme-color" content="#1d3e59" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <style>
     :root {
+      color-scheme: light dark;
       --primary: #1d3e59;
       --primary-hover: #2a5a7e;
       --primary-active: #152d42;
       --text: #333;
       --muted: #666;
       --border: #ccc;
-      --font-main: sans-serif;
+      --bg: #fff;
+      --font-main: system-ui, sans-serif;
+      --heading: #1d3e59;
+      --h1-size: 1.5rem;
+      --h2-size: 1.15rem;
+      --btn-secondary: var(--primary);
+      --btn-secondary-hover: rgba(29, 62, 89, 0.08);
+      --btn-secondary-active: rgba(29, 62, 89, 0.18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #3d6e97;
+        --primary-hover: #4e82ad;
+        --primary-active: #2d5578;
+        --text: #f0f0f0;
+        --muted: #aaa;
+        --border: #444;
+        --bg: #121212;
+        --heading: #ffffff;
+        --btn-secondary: #8ab4f8;
+        --btn-secondary-hover: rgba(138, 180, 248, 0.1);
+        --btn-secondary-active: rgba(138, 180, 248, 0.2);
+      }
     }
     body {
       font-family: var(--font-main);
@@ -28,6 +52,7 @@
       flex-direction: column;
       height: 100dvh;
       color: var(--text);
+      background-color: var(--bg);
     }
     .px-4 {
       padding-left: 1rem;
@@ -38,7 +63,7 @@
     }
     header a {
       text-decoration: none;
-      color: var(--primary);
+      color: var(--heading);
     }
     .logo {
       display: block;
@@ -50,10 +75,11 @@
     }
     h1 {
       margin: 0.5rem 0 0;
-      color: var(--primary);
+      color: var(--heading);
+      font-size: var(--h1-size);
     }
     h2 {
-      font-size: 1.2rem;
+      font-size: var(--h2-size);
       font-weight: normal;
       color: var(--muted);
       margin-top: 0.5rem;
@@ -68,7 +94,7 @@
     }
     .rpt-info h3 {
       margin: 0 0 .5rem;
-      color: var(--primary);
+      color: var(--heading);
     }
     .rpt-net {
       margin-bottom: 0.25rem;
@@ -87,13 +113,33 @@
       background: var(--primary);
       color: #fff;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
     a.btn:hover {
       background: var(--primary-hover);
     }
     a.btn:active {
       background: var(--primary-active);
+    }
+    a.btn-secondary, a.btn-secondary:visited {
+      background: transparent;
+      color: var(--btn-secondary);
+      border-color: var(--btn-secondary);
+    }
+    a.btn-secondary:hover {
+      background: var(--btn-secondary-hover);
+      color: var(--btn-secondary);
+      border-color: var(--btn-secondary);
+    }
+    a.btn-secondary:active {
+      background: var(--btn-secondary-active);
+      color: var(--btn-secondary);
+      border-color: var(--btn-secondary);
     }
     .offline-hidden {
       display: none !important;
@@ -125,7 +171,10 @@
 <div class="px-4">
 <header>
   <a href="index.html">
-    <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+    <picture>
+      <source srcset="logo_w.webp" media="(prefers-color-scheme: dark)">
+      <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+    </picture>
     <div class="site-name">WNC RADIO PROJECT</div>
   </a>
   <h1>GMRS REPEATERS</h1>

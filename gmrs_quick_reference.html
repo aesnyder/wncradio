@@ -8,17 +8,56 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" type="image/webp" href="/logo_g.webp">
 <link rel="apple-touch-icon" href="/logo_g.webp">
-<meta name="theme-color" content="#1d3e59">
+<meta name="theme-color" content="#1d3e59" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
 <style>
     :root {
+      color-scheme: light dark;
       --primary: #1d3e59;
       --primary-hover: #2a5a7e;
       --primary-active: #152d42;
       --text: #333;
       --muted: #666;
       --border: #ccc;
-      --font-main: sans-serif;
+      --font-main: system-ui, sans-serif;
+      --bg: #fff;
       --bg-light: #f4f4f4;
+      --th-bg: #e0e0e0;
+      --th-border: #999;
+      --bg-yellow: #ffff99;
+      --bg-orange: #ffcc99;
+      --bg-blue: #99ccff;
+      --bg-green: #ccffcc;
+      --row-text: inherit;
+      --heading: #1d3e59;
+      --h1-size: 1.5rem;
+      --h2-size: 1.15rem;
+      --btn-secondary: var(--primary);
+      --btn-secondary-hover: rgba(29, 62, 89, 0.08);
+      --btn-secondary-active: rgba(29, 62, 89, 0.18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #3d6e97;
+        --primary-hover: #4e82ad;
+        --primary-active: #2d5578;
+        --text: #f0f0f0;
+        --muted: #aaa;
+        --border: #444;
+        --bg: #121212;
+        --bg-light: #1e1e1e;
+        --th-bg: #2b2b2b;
+        --th-border: #555;
+        --bg-yellow: #4d4d00;
+        --bg-orange: #663300;
+        --bg-blue: #003366;
+        --bg-green: #004d1a;
+        --row-text: #ffffff;
+        --heading: #ffffff;
+        --btn-secondary: #8ab4f8;
+        --btn-secondary-hover: rgba(138, 180, 248, 0.1);
+        --btn-secondary-active: rgba(138, 180, 248, 0.2);
+      }
     }
     * { box-sizing: border-box; }
     html, body {
@@ -28,7 +67,7 @@
     }
     body {
         font-family: var(--font-main);
-        background-color: #fff;
+        background-color: var(--bg);
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         display: flex;
@@ -45,7 +84,7 @@
     header a {
         display: block;
         text-decoration: none;
-        color: var(--primary);
+        color: var(--heading);
     }
     header .site-name {
         font-size: 0.9rem;
@@ -53,8 +92,11 @@
     }
     header h1 {
         margin: 0.5rem 0 0;
-        font-size: 1.5rem;
-        color: var(--primary);
+        font-size: var(--h1-size);
+        color: var(--heading);
+    }
+    h2 {
+        font-size: var(--h2-size);
     }
 
     /* FOOTER */
@@ -71,10 +113,30 @@
         background: var(--primary);
         color: #fff;
         text-decoration: none;
-        border-radius: 4px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        font-size: 0.95rem;
+        line-height: 1.35;
+        box-sizing: border-box;
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
     a.btn:hover { background: var(--primary-hover); }
     a.btn:active { background: var(--primary-active); }
+    a.btn-secondary, a.btn-secondary:visited {
+        background: transparent;
+        color: var(--btn-secondary);
+        border-color: var(--btn-secondary);
+    }
+    a.btn-secondary:hover {
+        background: var(--btn-secondary-hover);
+        color: var(--btn-secondary);
+        border-color: var(--btn-secondary);
+    }
+    a.btn-secondary:active {
+        background: var(--btn-secondary-active);
+        color: var(--btn-secondary);
+        border-color: var(--btn-secondary);
+    }
 
     .offline-hidden {
         display: none !important;
@@ -159,10 +221,10 @@
         margin-bottom: 0.5rem;
     }
     th {
-        background-color: #e0e0e0;
+        background-color: var(--th-bg);
         font-weight: bold;
         text-align: center;
-        border: 1px solid #999;
+        border: 1px solid var(--th-border);
         padding: 0.4rem 0.25rem;
     }
     td {
@@ -188,10 +250,10 @@
     }
 
     /* COLORS */
-    .bg-yellow { background-color: #ffff99; }
-    .bg-orange { background-color: #ffcc99; }
-    .bg-blue { background-color: #99ccff; }
-    .bg-green { background-color: #ccffcc; }
+    .bg-yellow { background-color: var(--bg-yellow); color: var(--row-text); }
+    .bg-orange { background-color: var(--bg-orange); color: var(--row-text); }
+    .bg-blue { background-color: var(--bg-blue); color: var(--row-text); }
+    .bg-green { background-color: var(--bg-green); color: var(--row-text); }
 
     /* FCC TEXT */
     .fcc-text {
@@ -230,7 +292,26 @@
 
     /* PRINT STYLES */
     @media print {
-        body { font-size: 9px; }
+        :root {
+          --bg: #fff !important;
+          --text: #333 !important;
+          --primary: #1d3e59 !important;
+          --border: #ccc !important;
+          --bg-light: #f4f4f4 !important;
+          --th-bg: #e0e0e0 !important;
+          --th-border: #999 !important;
+          --bg-yellow: #ffff99 !important;
+          --bg-orange: #ffcc99 !important;
+          --bg-blue: #99ccff !important;
+          --bg-green: #ccffcc !important;
+          --row-text: inherit !important;
+          --heading: #1d3e59 !important;
+        }
+        body {
+            background-color: #fff !important;
+            color: #333 !important;
+            font-size: 9px;
+        }
         header { padding: 0.5rem; }
         header h1 { font-size: 1.2rem; }
         main { padding: 0.25rem; }
@@ -253,7 +334,10 @@
 
 <header>
     <a href="index.html">
-        <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+        <picture>
+            <source srcset="logo_w.webp" media="(prefers-color-scheme: dark)">
+            <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+        </picture>
         <div class="site-name">WNC RADIO PROJECT</div>
     </a>
     <h1>FRS/GMRS Quick Reference</h1>
