@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wnc-radio-v1.38';
+const CACHE_NAME = 'wnc-radio-v1.39';
 const ASSETS = [
   '/',
   '/index.html',
