@@ -29,3 +29,12 @@ This todo list outlines the steps to implement layout reordering, typography sca
 - [ ] **5. Service Worker Update & Verification**
   - [x] Bump PWA `CACHE_NAME` version in `sw.js`.
   - [ ] Test the site locally (validate light/dark modes and mobile responsive grid scaling).
+
+- [ ] **6. UX & Aesthetic Enhancements (Designer Feedback)**
+  - *Emergency Benefit: Native OS system font rendering and improved visual hierarchy reduce cognitive load and fatigue during high-stress operations.*
+  - [ ] Update `--font-main: sans-serif;` to native system UI font stack (`system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`) in `index.html`, `repeaters.html`, and `gmrs_quick_reference.html`.
+  - [ ] Soften button aesthetics by increasing `border-radius` from `4px` to `8px` in all three HTML files.
+  - [ ] Add smooth CSS interactions (`transition: all 0.2s ease;`) to all buttons to prevent harsh state switching.
+  - [ ] Set button text line-height to `1.35` for balanced multi-line text alignment.
+  - [ ] Improve vertical spacing/grouping by increasing `.section-title` top margin from `1.5rem` to `2.5rem` on the homepage.
+  - [ ] Polish PWA offline indicator bar design.
