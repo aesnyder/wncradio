@@ -30,6 +30,8 @@
       --bg-green: #ccffcc;
       --row-text: inherit;
       --heading: #1d3e59;
+      --h1-size: 1.5rem;
+      --h2-size: 1.15rem;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -84,8 +86,11 @@
     }
     header h1 {
         margin: 0.5rem 0 0;
-        font-size: 1.5rem;
+        font-size: var(--h1-size);
         color: var(--heading);
+    }
+    h2 {
+        font-size: var(--h2-size);
     }
 
     /* FOOTER */

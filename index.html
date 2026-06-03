@@ -22,6 +22,8 @@
       --link: blue;
       --font-main: sans-serif;
       --heading: #1d3e59;
+      --h1-size: 1.5rem;
+      --h2-size: 1.15rem;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -53,9 +55,10 @@
     h1 {
       margin: 0;
       color: var(--heading);
+      font-size: var(--h1-size);
     }
     h2 {
-      font-size: 1.2rem;
+      font-size: var(--h2-size);
       font-weight: normal;
       color: var(--muted);
     }
