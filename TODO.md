@@ -2,9 +2,9 @@
 
 This todo list outlines the steps to implement layout reordering, typography scaling, and asset weight optimization for the WNC Radio Project.
 
-- [ ] **1. Asset Weight Optimization**
-  - [ ] Copy the original high-resolution color logo (`logo_g.webp`) to `logo_g_highres.webp` to keep the raw master file in the repository.
-  - [ ] Convert `logo_g.webp` to lossy WebP at 90% quality using ImageMagick (target size: ~3 KB vs current 17.8 KB) to optimize transmission on slow emergency networks.
+- [x] **1. Asset Weight Optimization**
+  - [x] Copy the original high-resolution color logo (`logo_g.webp`) to `logo_g_highres.webp` to keep the raw master file in the repository.
+  - [x] Convert `logo_g.webp` to lossy WebP at 90% quality using ImageMagick (target size: ~3 KB vs current 17.8 KB) to optimize transmission on slow emergency networks.
 
 - [x] **2. Typography & Hierarchy Setup**
   - [x] Add typography scale variables to the `:root` block of `index.html`, `repeaters.html`, and `gmrs_quick_reference.html`:
@@ -20,8 +20,8 @@ This todo list outlines the steps to implement layout reordering, typography sca
     * Color: `var(--primary)`
     * Hover/Active states matching light and dark themes.
 
-- [ ] **4. Emergency UX Layout Reordering**
-  - [ ] Group and reorder buttons in `index.html`:
+- [x] **4. Emergency UX Layout Reordering**
+  - [x] Group and reorder buttons in `index.html`:
     * **Top Section**: "Emergency & Reference (Always Offline Capable)"
       * *GMRS Repeaters* (Primary Button)
       * *FRS/GMRS Quick Reference* (Primary Button)
