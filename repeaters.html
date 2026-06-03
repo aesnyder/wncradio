@@ -108,12 +108,28 @@
       color: #fff;
       text-decoration: none;
       border-radius: 4px;
+      border: 1px solid transparent;
     }
     a.btn:hover {
       background: var(--primary-hover);
     }
     a.btn:active {
       background: var(--primary-active);
+    }
+    a.btn-secondary, a.btn-secondary:visited {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    a.btn-secondary:hover {
+      background: var(--primary-hover);
+      color: #fff;
+      border-color: var(--primary-hover);
+    }
+    a.btn-secondary:active {
+      background: var(--primary-active);
+      color: #fff;
+      border-color: var(--primary-active);
     }
     .offline-hidden {
       display: none !important;
