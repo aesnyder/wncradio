@@ -37,4 +37,6 @@ This todo list outlines the steps to implement layout reordering, typography sca
   - [ ] Add smooth CSS interactions (`transition: all 0.2s ease;`) to all buttons to prevent harsh state switching.
   - [ ] Set button text line-height to `1.35` for balanced multi-line text alignment.
   - [ ] Improve vertical spacing/grouping by increasing `.section-title` top margin from `1.5rem` to `2.5rem` on the homepage.
+  - [ ] Harden dark mode contrast by using a high-contrast text and border color (e.g., `#8ab4f8`) for secondary outline buttons in dark mode instead of the low-contrast `--primary` blue (`#3d6e97`).
+  - [ ] Increase footer top margin (e.g., from `2rem` to `3rem`) to improve separation.
   - [ ] Polish PWA offline indicator bar design.
