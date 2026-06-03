@@ -157,10 +157,14 @@
         border-color: var(--btn-secondary);
     }
 
-    .offline-hidden {
+    body.is-offline #offline-indicator {
+        display: block;
+    }
+    body.is-offline .requires-network,
+    body.is-offline a[href^="http"],
+    body.is-offline a[href$=".pdf"] {
         display: none !important;
     }
-
     #offline-indicator {
         display: none;
         background: #d32f2f;
@@ -676,21 +680,11 @@
   }
 
   function updateOfflineStatus() {
-    const isOffline = !navigator.onLine;
-    const indicator = document.getElementById('offline-indicator');
-    if (indicator) {
-      indicator.style.display = isOffline ? 'block' : 'none';
+    if (!navigator.onLine) {
+      document.body.classList.add('is-offline');
+    } else {
+      document.body.classList.remove('is-offline');
     }
-    document.querySelectorAll('a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && (href.startsWith('http') || href.endsWith('.pdf'))) {
-        if (isOffline) {
-          link.classList.add('offline-hidden');
-        } else {
-          link.classList.remove('offline-hidden');
-        }
-      }
-    });
   }
 
   window.addEventListener('online', updateOfflineStatus);

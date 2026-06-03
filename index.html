@@ -147,7 +147,12 @@
       margin: 0 10px;
       max-width: 50px;
     }
-    .offline-hidden {
+    body.is-offline #offline-indicator {
+      display: block;
+    }
+    body.is-offline .requires-network,
+    body.is-offline a[href^="http"],
+    body.is-offline a[href$=".pdf"] {
       display: none !important;
     }
     #offline-indicator {
@@ -290,7 +295,7 @@
       </svg>Weekly net on <a href="repeaters.html#flat-top-mountain">Flat Top Mountain Repeater</a> every Sunday at 7PM
     </div>
 
-    <div id="community-divider" class="section-divider">Community Resources</div>
+    <div class="section-divider requires-network">Community Resources</div>
 
     <a class="btn btn-secondary" href="https://www.gofundme.com/f/boost-fairviews-emergency-comms-donate-for-gmrs-repeater">Donate</a>
     <a class="btn btn-secondary" href="https://forms.gle/QuDrYDJfYUTTQULs5">Free Class: Intro & Licensing</a>
@@ -320,30 +325,11 @@
   }
 
   function updateOfflineStatus() {
-    const isOffline = !navigator.onLine;
-    const indicator = document.getElementById('offline-indicator');
-    if (indicator) {
-      indicator.style.display = isOffline ? 'block' : 'none';
+    if (!navigator.onLine) {
+      document.body.classList.add('is-offline');
+    } else {
+      document.body.classList.remove('is-offline');
     }
-    const communityDivider = document.getElementById('community-divider');
-    if (communityDivider) {
-      if (isOffline) {
-        communityDivider.classList.add('offline-hidden');
-      } else {
-        communityDivider.classList.remove('offline-hidden');
-      }
-    }
-    
-    document.querySelectorAll('a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && (href.startsWith('http') || href.endsWith('.pdf'))) {
-        if (isOffline) {
-          link.classList.add('offline-hidden');
-        } else {
-          link.classList.remove('offline-hidden');
-        }
-      }
-    });
   }
 
   window.addEventListener('online', updateOfflineStatus);
