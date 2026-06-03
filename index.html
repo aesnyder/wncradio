@@ -251,7 +251,7 @@
 <div id="offline-indicator">
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: middle; margin-right: 0.35rem; display: inline-block; margin-top: -2px;">
     <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.5M5 12.5a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.5 9M1.5 9a16 16 0 0 1 7.73-3.66M12 18h.01"/>
-  </svg>Offline Mode: Some features hidden
+  </svg>Offline
 </div>
 <div class="px-4">
 <header>
@@ -290,7 +290,7 @@
       </svg>Weekly net on <a href="repeaters.html#flat-top-mountain">Flat Top Mountain Repeater</a> every Sunday at 7PM
     </div>
 
-    <div class="section-divider">Community Resources</div>
+    <div id="community-divider" class="section-divider">Community Resources</div>
 
     <a class="btn btn-secondary" href="https://www.gofundme.com/f/boost-fairviews-emergency-comms-donate-for-gmrs-repeater">Donate</a>
     <a class="btn btn-secondary" href="https://forms.gle/QuDrYDJfYUTTQULs5">Free Class: Intro & Licensing</a>
@@ -325,6 +325,15 @@
     if (indicator) {
       indicator.style.display = isOffline ? 'block' : 'none';
     }
+    const communityDivider = document.getElementById('community-divider');
+    if (communityDivider) {
+      if (isOffline) {
+        communityDivider.classList.add('offline-hidden');
+      } else {
+        communityDivider.classList.remove('offline-hidden');
+      }
+    }
+    
     document.querySelectorAll('a').forEach(link => {
       const href = link.getAttribute('href');
       if (href && (href.startsWith('http') || href.endsWith('.pdf'))) {
