@@ -16,6 +16,10 @@
       --primary: #1d3e59;
       --primary-hover: #2a5a7e;
       --primary-active: #152d42;
+      --emergency-bg: var(--primary);
+      --emergency-hover: var(--primary-hover);
+      --emergency-active: var(--primary-active);
+      --emergency-text: #ffffff;
       --text: #333;
       --muted: #666;
       --border: #ccc;
@@ -33,6 +37,10 @@
         --primary: #3d6e97;
         --primary-hover: #4e82ad;
         --primary-active: #2d5578;
+        --emergency-bg: var(--primary);
+        --emergency-hover: var(--primary-hover);
+        --emergency-active: var(--primary-active);
+        --emergency-text: #ffffff;
         --text: #f0f0f0;
         --muted: #aaa;
         --border: #444;
@@ -126,6 +134,17 @@
     a.btn:active {
       background: var(--primary-active);
     }
+    a.btn-emergency, a.btn-emergency:visited {
+      background: var(--emergency-bg);
+      color: var(--emergency-text);
+      font-weight: bold;
+    }
+    a.btn-emergency:hover {
+      background: var(--emergency-hover);
+    }
+    a.btn-emergency:active {
+      background: var(--emergency-active);
+    }
     a.btn-secondary, a.btn-secondary:visited {
       background: transparent;
       color: var(--btn-secondary);
@@ -146,13 +165,29 @@
     }
     #offline-indicator {
       display: none;
-      background: #8b0000;
+      background: #d32f2f;
       color: white;
-      padding: 0.5rem;
+      padding: 0.75rem 1rem;
       font-size: 0.9rem;
       font-weight: bold;
       text-align: center;
-      margin-bottom: 1rem;
+      border-bottom: 3px solid #b71c1c;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+    @media (prefers-color-scheme: dark) {
+      #offline-indicator {
+        background: #e57373;
+        color: #121212;
+        border-bottom-color: #ef9a9a;
+      }
     }
     footer {
       padding: 1rem;
@@ -167,13 +202,17 @@
 </head>
 <body>
 <main>
-<div id="offline-indicator">Offline Mode: Some features hidden</div>
+<div id="offline-indicator">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: middle; margin-right: 0.35rem; display: inline-block; margin-top: -2px;">
+    <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.5M5 12.5a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.5 9M1.5 9a16 16 0 0 1 7.73-3.66M12 18h.01"/>
+  </svg>Offline Mode: Some features hidden
+</div>
 <div class="px-4">
 <header>
   <a href="index.html">
     <picture>
       <source srcset="logo_w.webp" media="(prefers-color-scheme: dark)">
-      <img src="logo_g.webp" alt="WNC Radio Project Logo" width="100" height="66.5" class="logo">
+      <img src="logo_g.webp" alt="WNC Radio Project Logo" width="80" height="53" class="logo">
     </picture>
     <div class="site-name">WNC RADIO PROJECT</div>
   </a>
