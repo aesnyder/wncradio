@@ -16,6 +16,10 @@
       --primary: #1d3e59;
       --primary-hover: #2a5a7e;
       --primary-active: #152d42;
+      --emergency-bg: var(--primary);
+      --emergency-hover: var(--primary-hover);
+      --emergency-active: var(--primary-active);
+      --emergency-text: #ffffff;
       --text: #333;
       --muted: #666;
       --bg: #fff;
@@ -33,6 +37,10 @@
         --primary: #3d6e97;
         --primary-hover: #4e82ad;
         --primary-active: #2d5578;
+        --emergency-bg: var(--primary);
+        --emergency-hover: var(--primary-hover);
+        --emergency-active: var(--primary-active);
+        --emergency-text: #ffffff;
         --text: #f0f0f0;
         --muted: #aaa;
         --bg: #121212;
@@ -68,9 +76,6 @@
       font-weight: normal;
       color: var(--muted);
     }
-    .hero-text {
-      margin-bottom: 2rem;
-    }
     a {
       color: var(--link);
     }
@@ -98,6 +103,17 @@
     a.btn:active {
       background: var(--primary-active);
     }
+    a.btn-emergency, a.btn-emergency:visited {
+      background: var(--emergency-bg);
+      color: var(--emergency-text);
+      font-weight: bold;
+    }
+    a.btn-emergency:hover {
+      background: var(--emergency-hover);
+    }
+    a.btn-emergency:active {
+      background: var(--emergency-active);
+    }
     a.btn-secondary, a.btn-secondary:visited {
       background: transparent;
       color: var(--btn-secondary);
@@ -113,38 +129,130 @@
       color: var(--btn-secondary);
       border-color: var(--btn-secondary);
     }
-    .section-title {
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--heading);
-      margin: 1.5rem 0 0.75rem;
+    .section-divider {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin: 2.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .section-divider::before, .section-divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--border);
+      margin: 0 10px;
+      max-width: 50px;
     }
     .offline-hidden {
       display: none !important;
     }
     #offline-indicator {
       display: none;
-      background: #8b0000;
+      background: #d32f2f;
       color: white;
-      padding: 0.5rem;
+      padding: 0.75rem 1rem;
       font-size: 0.9rem;
       font-weight: bold;
       text-align: center;
-      margin-bottom: 1rem;
+      border-bottom: 3px solid #b71c1c;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 0.3s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+    @media (prefers-color-scheme: dark) {
+      #offline-indicator {
+        background: #e57373;
+        color: #121212;
+        border-bottom-color: #ef9a9a;
+      }
     }
     .logo {
       display: block;
       margin: 0 auto;
     }
+    .emergency-card {
+      background-color: #fff9e6;
+      border: 2px solid #ffcc00;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.5rem auto;
+      max-width: 300px;
+      box-sizing: border-box;
+      text-align: left;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .emergency-card-title {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #996600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .emergency-card-content {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #333;
+    }
+    .emergency-card-content strong {
+      color: #000;
+    }
+    @media (prefers-color-scheme: dark) {
+      .emergency-card {
+        background-color: #2b1f00;
+        border-color: #cca300;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .emergency-card-title {
+        color: #ffcc00;
+      }
+      .emergency-card-content {
+        color: #f0f0f0;
+      }
+      .emergency-card-content strong {
+        color: #fff;
+      }
+    }
+    .net-banner {
+      background-color: var(--btn-secondary-hover);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin: 2.5rem auto 1rem;
+      max-width: 320px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .net-banner a {
+      font-weight: bold;
+      text-decoration: underline;
+    }
     footer {
-      margin: 2rem 0;
+      margin: 3rem 0 2rem;
       color: var(--muted);
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-<div id="offline-indicator">Offline Mode: Some features hidden</div>
+<div id="offline-indicator">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: middle; margin-right: 0.35rem; display: inline-block; margin-top: -2px;">
+    <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.5M5 12.5a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.5 9M1.5 9a16 16 0 0 1 7.73-3.66M12 18h.01"/>
+  </svg>Offline Mode: Some features hidden
+</div>
 <div class="px-4">
 <header>
   <picture>
@@ -154,14 +262,36 @@
   <h1>WNC RADIO PROJECT</h1>
   <h2>Community and Emergency Communication in Western&nbsp;North&nbsp;Carolina</h2>
 </header>
-<main>
-  <p class="hero-text">Weekly net on <a href="repeaters.html#flat-top-mountain">Flat Top Mountain Repeater</a> every&nbsp;Sunday&nbsp;at&nbsp;7PM</p>
-  <nav>
-    <div class="section-title">Emergency & Reference</div>
-    <a class="btn" href="repeaters.html">GMRS Repeaters</a>
-    <a class="btn" href="gmrs_quick_reference.html">FRS/GMRS Quick Reference</a>
 
-    <div class="section-title">Community & Training</div>
+<main>
+  <nav>
+    <div class="section-divider" style="margin-top: 0;">Emergency Guides</div>
+
+
+    <a class="btn btn-emergency" href="repeaters.html">
+      <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: middle; margin-right: 0.5rem; margin-top: -2px; display: inline-block;">
+        <path d="M12 2L5 22M12 2L19 22M5 22H19M9 10H15M7 16H17" />
+        <circle cx="12" cy="2" r="1" fill="currentColor" />
+        <path d="M12 2c1.5 0 2.8.8 3.5 2M12 2c-1.5 0-2.8.8-3.5 2M12 2c2.8 0 5.2 1.6 7 4M12 2c-2.8 0-5.2 1.6-7 4" />
+      </svg>GMRS Repeaters
+    </a>
+    <a class="btn btn-emergency" href="gmrs_quick_reference.html">
+      <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: middle; margin-right: 0.5rem; margin-top: -2px; display: inline-block;">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        <path d="M9 6h6M9 10h6" />
+      </svg>FRS/GMRS Quick Reference
+    </a>
+
+    <div class="net-banner">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: middle; margin-right: 0.4rem; display: inline-block; margin-top: -2px;">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>Weekly net on <a href="repeaters.html#flat-top-mountain">Flat Top Mountain Repeater</a> every Sunday at 7PM
+    </div>
+
+    <div class="section-divider">Community Resources</div>
+
     <a class="btn btn-secondary" href="https://www.gofundme.com/f/boost-fairviews-emergency-comms-donate-for-gmrs-repeater">Donate</a>
     <a class="btn btn-secondary" href="https://forms.gle/QuDrYDJfYUTTQULs5">Free Class: Intro & Licensing</a>
     <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfROIrGxsJoTzmSHj6VigazGvR42u0paSbONg0_5SZRQdDSTw/viewform">Free Class: Baofeng Radio</a>
